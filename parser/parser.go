@@ -1,6 +1,8 @@
 package parser
 
-import "strconv"
+import (
+	"strconv"
+)
 
 type CoverageInfo struct {
 	InstructionCovered *int
@@ -48,7 +50,7 @@ func (ci *CoverageInfo) coveraged(covered, total *int) *float64 {
 	if total == nil || covered == nil || *total == 0 {
 		return nil
 	}
-	res := float64(*ci.LineCovered) / float64(*ci.LineTotal)
+	res := float64(*covered) / float64(*total)
 	return &res
 }
 
