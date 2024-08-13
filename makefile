@@ -15,4 +15,6 @@ clean: ## clean up the dist directory
 	rm -rf dist
 	@echo "$(GREEN)Cleaned up$(REST)"
 
-.PHONY: build clean help
+test: ## Run tests
+	go test ./... -cover 
+.PHONY: build clean help test
