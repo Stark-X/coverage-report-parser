@@ -43,11 +43,12 @@ func TestParse_standardFile(t *testing.T) {
 		t.Fatalf("unexpected error: %v", err)
 	}
 
-	if ci.LineCoverage() == nil {
+	if ci.LineCoverage() == nil || *ci.LineCoverage() != 0.625 {
 		t.Fatalf("unexpected line coverage: %v", ci.LineCoverage())
 	}
 
-	if *ci.LineCoverage() != 0.625 {
-		t.Fatalf("unexpected line coverage: %v", ci.LineCoverage())
+	if ci.BranchCoverage() == nil || *ci.BranchCoverage() != 0.5 {
+		t.Fatalf("unexpected branch coverage: %v", ci.BranchCoverage())
 	}
+
 }
